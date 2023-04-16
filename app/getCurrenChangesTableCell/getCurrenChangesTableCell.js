@@ -1,13 +1,12 @@
 const getcurrentChangesTableCell = (cellTable) => {
   const currentChangesTableCell = cellTable.map((cellRow, rowIndex) => {
     const cellRowResult = cellRow.map((cell, cellPosition) => {
-      let upperRowTrueNeighbors;
+      let upperRowTrueNeighbors = 0;
       let nearTrueNeighbors;
-      let bottomRowTrueNeighbors;
+      let bottomRowTrueNeighbors = 0;
 
       if (rowIndex === 0) {
         if (cellPosition === 0) {
-          upperRowTrueNeighbors = 0;
           nearTrueNeighbors = cellRow[cellPosition + 1];
           bottomRowTrueNeighbors =
             cellTable[rowIndex + 1][cellPosition] +
@@ -15,7 +14,6 @@ const getcurrentChangesTableCell = (cellTable) => {
         }
 
         if (cellPosition === cellRow.length - 1) {
-          upperRowTrueNeighbors = 0;
           nearTrueNeighbors = cellRow[cellPosition - 1];
           bottomRowTrueNeighbors =
             cellTable[rowIndex + 1][cellPosition] +
@@ -23,7 +21,6 @@ const getcurrentChangesTableCell = (cellTable) => {
         }
 
         if (rowIndex === 0) {
-          upperRowTrueNeighbors = 0;
           nearTrueNeighbors =
             cellRow[cellPosition - 1] + cellRow[cellPosition + 1];
           bottomRowTrueNeighbors =
@@ -39,7 +36,6 @@ const getcurrentChangesTableCell = (cellTable) => {
             cellTable[rowIndex - 1][cellPosition] +
             cellTable[rowIndex - 1][cellPosition + 1];
           nearTrueNeighbors = cellRow[cellPosition + 1];
-          bottomRowTrueNeighbors = 0;
         }
 
         if (cellPosition === rowIndex.length - 1) {
@@ -47,7 +43,6 @@ const getcurrentChangesTableCell = (cellTable) => {
             cellTable[rowIndex - 1][cellPosition] +
             cellTable[rowIndex - 1][cellPosition - 1];
           nearTrueNeighbors = cellRow[cellPosition - 1];
-          bottomRowTrueNeighbors = 0;
         }
 
         if (rowIndex === cellTable.length - 1) {
@@ -57,7 +52,6 @@ const getcurrentChangesTableCell = (cellTable) => {
             cellTable[rowIndex - 1][cellPosition + 1];
           nearTrueNeighbors =
             cellRow[cellPosition - 1] + cellRow[cellPosition + 1];
-          bottomRowTrueNeighbors = 0;
         }
       }
 
