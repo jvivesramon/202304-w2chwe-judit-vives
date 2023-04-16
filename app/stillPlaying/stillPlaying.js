@@ -11,7 +11,12 @@ const stillPlaying = (cellTable) => {
   const isNotOver = trueOrFalse.some((element) => element === false);
 
   if (isNotOver) {
-    stillPlaying(getcurrentChangesTableCell(currentCellTable));
+    const getTimer = () => {
+      stillPlaying(getcurrentChangesTableCell(currentCellTable));
+      setTimeout(() => getTimer(), 1000);
+    };
+
+    getTimer();
   }
 };
 
