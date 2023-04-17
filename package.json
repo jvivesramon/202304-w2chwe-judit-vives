@@ -2,7 +2,7 @@
   "name": "202304-w2chwe-judit-vives",
   "version": "1.0.0",
   "description": "",
-  "main": "app/",
+  "main": "app/index.js",
   "type": "module",
   "scripts": {
     "test": "node .",
